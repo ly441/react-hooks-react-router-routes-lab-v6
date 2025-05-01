@@ -1,6 +1,6 @@
-
-import MovieCard from "../components/MovieCard";
-import NavBar from "../components/NavBar";
+import React from "react";
+import MovieCard from "../components/MovieCard.jsx";
+import NavBar from "../components/NavBar.jsx";
 
 function Home({ movies }) {
   return (

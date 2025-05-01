@@ -1,11 +1,12 @@
 
 import { createBrowserRouter } from "react-router-dom";
-import Home from "./pages/Home";
-import Directors from "./pages/Directors";
-import Actors from "./pages/Actors";
-import Movie from "./pages/Movie";
-import ErrorPage from "./pages/ErrorPage";
-import App from "./App";
+import Home from "./pages/Home.jsx";
+import Directors from "./pages/Directors.jsx";
+import Actors from "./pages/Actors.jsx";
+import Movie from "./pages/Movie.jsx";
+import ErrorPage from "./pages/ErrorPage.jsx";
+
+import App from "../App.jsx";
 
 const routes = createBrowserRouter([
   {
