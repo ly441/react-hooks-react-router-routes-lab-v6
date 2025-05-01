@@ -1,16 +1,27 @@
-import React from "react";
-import MovieCard from "../components/MovieCard.jsx";
-import NavBar from "../components/NavBar.jsx";
 
-function Home({ movies }) {
+// pages/Home.jsx
+import React, { useState, useEffect } from 'react';
+import MovieCard from '../components/MovieCard';
+
+const Home = () => {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3001/movies') // Assuming json-server is running
+      .then(res => res.json())
+      .then(data => setMovies(data));
+  }, []);
+
   return (
-    <>
-      <NavBar />
+    <div>
       <h1>Home Page</h1>
-      {movies.map((movie) => (
-        <MovieCard key={movie.id} movie={movie} />
-      ))}
-    </>
+      <div>
+        {movies.map(movie => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
+      </div>
+    </div>
   );
-}
+};
+
 export default Home;

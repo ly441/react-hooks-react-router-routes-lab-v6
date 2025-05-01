@@ -1,22 +1,31 @@
-import React from "react";
-import NavBar from "../components/NavBar.jsx";
 
-function Directors({ directors }) {
+// pages/Directors.jsx
+import React, { useState, useEffect } from 'react';
+
+const Directors = () => {
+  const [directors, setDirectors] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3001/directors') // Fetch directors from the JSON server
+      .then(res => res.json())
+      .then(data => setDirectors(data));
+  }, []);
+
   return (
-    <>
-      <NavBar />
+    <div>
       <h1>Directors Page</h1>
-      {directors.map((d, i) => (
-        <article key={i}>
-          <h2>{d.name}</h2>
+      {directors.map(director => (
+        <article key={director.id}>
+          <h2>{director.name}</h2>
           <ul>
-            {d.movies.map((m, j) => (
-              <li key={j}>{m}</li>
+            {director.movies.map((movie, index) => (
+              <li key={index}>{movie}</li>
             ))}
           </ul>
         </article>
       ))}
-    </>
+    </div>
   );
-}
+};
+
 export default Directors;

@@ -1,25 +1,18 @@
 
-import { createBrowserRouter } from "react-router-dom";
-import Home from "./pages/Home.jsx";
-import Directors from "./pages/Directors.jsx";
-import Actors from "./pages/Actors.jsx";
-import Movie from "./pages/Movie.jsx";
-import ErrorPage from "./pages/ErrorPage.jsx";
+import App from "./App";
+import Home from "./pages/Home";
+import Actors from "./pages/Actors";
+import Directors from "./pages/Directors";
 
-import App from "../App.jsx";
-
-const routes = createBrowserRouter([
+export const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
-    errorElement: <ErrorPage />,
+    element: <App />, // this should wrap everything
     children: [
-      { path: "/", element: <Home /> },
-      { path: "/directors", element: <Directors /> },
-      { path: "/actors", element: <Actors /> },
-      { path: "/movie/:id", element: <Movie /> },
+      { path: "", element: <Home /> },
+      { path: "actors", element: <Actors /> },
+      { path: "directors", element: <Directors /> },
     ],
   },
 ]);
-
-export default routes;
+export default router;
